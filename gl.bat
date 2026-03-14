@@ -47,10 +47,5 @@ adb shell am force-stop com.tencent.ig
 echo Waiting for memory load...
 timeout /t 3
 
-:: جلب العناوين الأساسية (Base Addresses) [cite: 18, 19]
-for /f "tokens=1" %%a in ('adb shell pidof com.tencent.ig') do set PID=%%a
-if "%PID%" NEQ "" (
-   adb shell "cat /proc/%PID%/maps | grep -m 1 libUE4.so"
-)
 
 pause
