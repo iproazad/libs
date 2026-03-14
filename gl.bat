@@ -47,5 +47,3 @@ adb shell am force-stop com.tencent.ig
 echo Waiting for memory load...
 timeout /t 3
 
-
-pause
