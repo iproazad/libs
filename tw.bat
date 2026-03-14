@@ -47,10 +47,3 @@ adb shell am force-stop com.rekoo.pubgm
 echo Waiting for memory load...
 timeout /t 3
 
-:: جلب العناوين الأساسية (Base Addresses) [cite: 18, 19]
-for /f "tokens=1" %%a in ('adb shell pidof com.rekoo.pubgm') do set PID=%%a
-if "%PID%" NEQ "" (
-   adb shell "cat /proc/%PID%/maps | grep -m 1 libUE4.so"
-)
-
-pause
