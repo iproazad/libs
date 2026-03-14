@@ -46,5 +46,3 @@ adb shell am force-stop com.pubg.krmobile
 
 echo Waiting for memory load...
 timeout /t 3
-
-pause
