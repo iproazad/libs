@@ -3,11 +3,6 @@
 adb.exe kill-server
 adb.exe start-server
 
-echo --- Phase 1: Pre-Injection Prep (Pulling Original Library) ---
-
-
-echo --- Phase 2: Deep Cleanup ---
-
 :: مسح سجلات التتبع والديمو (ShadowTracker)
 adb shell rm -rf /sdcard/Android/data/com.rekoo.pubgm/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Logs
 adb shell rm -rf /sdcard/Android/data/com.rekoo.pubgm/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Demos
@@ -24,21 +19,12 @@ echo --- Phase 3: Injection & Permissions ---
 
 :: حذف الملفات القديمة لضمان نظافة العملية [cite: 15]
 
-adb shell rm -f /data/local/tmp/andriod/libkeysuperman.so
+adb shell rm -f /data/data/com.rekoo.pubgm/lib/libAkAudioVisiual.so
 
 :: رفع الملفات المعدلة وإعطاؤها صلاحيات كاملة [cite: 14, 15]
-adb push libgame.so /data/data/com.rekoo.pubgm/lib/libgame.so
-adb shell chmod 777 /data/data/com.rekoo.pubgm/lib/libgame.so
-
-adb push libswappy.so /data/data/com.rekoo.pubgm/lib/libswappy.so
-adb shell chmod 777 /data/data/com.rekoo.pubgm/lib/libswappy.so
-
-
-echo --- Phase 4: Launch & Monitor ---
-
-:: إيقاف إجباري ثم تشغيل اللعبة 
-adb shell am force-stop com.rekoo.pubgm
+adb push libAkAudioVisiual.so /data/data/com.rekoo.pubgm/lib/libAkAudioVisiual.so
+adb shell chmod 777 /data/data/com.rekoo.pubgm/lib/libAkAudioVisiual.so
 
 
 echo Waiting for memory load...
-timeout /t 3
+timeout /t 1
